@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahek Patel | Portfolio</title>
+
+  <!-- Serif fonts (Times-ish vibe) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #fdf2f8;
+      --bg-alt: #ffe4e6;
+      --card: rgba(255, 255, 255, 0.92);
+      --accent: #ec4899;
+      --accent-soft: rgba(236, 72, 153, 0.12);
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #f9a8d4;
+      --radius-lg: 18px;
+      --radius-xl: 999px;
+      --shadow-soft: 0 18px 35px rgba(236, 72, 153, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Merriweather", serif;
+      background: linear-gradient(135deg, #fdf2f8 0%, #ffe4e6 40%, #fef2f2 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    /* HEADER / NAV */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(10px);
+  background: transparent;  
+  padding: 0.8rem 0;
+}
+
+nav.nav {
+  width: 100%;                  /* full width across page */
+  display: flex;
+  justify-content: space-between; /* separate left & right */
+  align-items: center;
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-size: 1.3rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: flex-end;     /* push items to right */
+  align-items: center;
+  gap: 2rem;                     /* spacing between items */
+  flex-grow: 1;                  /* take remaining space */
+}
+
+.nav-links a {
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid transparent;
+  color: #4b5563;
+  transition: 0.15s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+
+    @media (max-width: 780px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Pink gradient text (titles + name under photo) */
+
+    .pink-title {
+      background: linear-gradient(90deg, #ec4899, #f9a8d4);
+      -webkit-background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    /* HERO (photo + about) */
+
+    .hero {
+      margin-top: 2rem;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: var(--shadow-soft);
+      padding: 1.8rem 1.8rem 1.5rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    @media (min-width: 820px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.8fr);
+      }
+    }
+
+    .hero-photo-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .photo-circle {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      border: 3px solid var(--border);
+      background: radial-gradient(circle at 30% 30%, #fee2e2, #fecaca);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 25px 40px rgba(236, 72, 153, 0.3);
+    }
+
+    .photo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .hero-about-card {
+      border-radius: 18px;
+      border: 1px solid rgba(249, 168, 212, 0.8);
+      background: rgba(255, 255, 255, 0.98);
+      padding: 1.2rem 1.3rem 1.1rem;
+    }
+
+    .hero-about-card h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-about-card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .hero-actions-row {
+      margin-top: 1.3rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border-radius: var(--radius-xl);
+      padding: 0.6rem 1.35rem;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: none;
+      color: var(--text);
+      transition: 0.18s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ec4899, #f9739a);
+      box-shadow: var(--shadow-soft);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      border-color: var(--border);
+      background: #fff;
+      color: #9f1239;
+    }
+
+    .btn-outline:hover {
+      background: #fdf2f8;
+    }
+
+    main {
+      display: grid;
+      gap: 2.1rem;
+      margin-top: 2rem;
+    }
+
+    section {
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      padding: 1.5rem 1.5rem 1.6rem;
+      box-shadow: 0 18px 35px rgba(248, 113, 150, 0.08);
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.9rem;
+    }
+
+    /* EXPERIENCE */
+
+    .experience-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .exp-item {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(248, 187, 208, 0.9);
+      background: #fff;
+      padding: 0.9rem 1rem;
+    }
+
+    .exp-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .exp-role {
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+
+    .exp-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .exp-summary {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .exp-bullets {
+      padding-left: 1.1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .exp-bullets li {
+      margin-bottom: 0.2rem;
+    }
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 720px) {
+      .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .skills-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(248, 187, 208, 0.9);
+      background: #fff;
+      padding: 0.9rem 1rem;
+    }
+
+    .skills-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .skills-tag {
+      font-size: 0.8rem;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(248, 187, 208, 0.9);
+      padding: 0.2rem 0.6rem;
+      background: #fff;
+      color: #9f1239;
+    }
+
+    /* PROJECTS */
+
+    .projects-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .project-item {
+      display: grid;
+      gap: 0.9rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(248, 187, 208, 0.9);
+      background: #fff;
+      padding: 0.9rem 1rem;
+    }
+
+    @media (min-width: 780px) {
+      .project-item {
+        grid-template-columns: 1.1fr 1.9fr;
+      }
+    }
+
+    .project-image-box {
+      border-radius: 14px;
+      border: 1px dashed rgba(248, 187, 208, 0.9);
+      background: #fdf2f8;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .project-title {
+      font-weight: 700;
+      font-size: 0.98rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .project-desc {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .project-tag {
+      font-size: 0.78rem;
+      padding: 0.18rem 0.5rem;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(248, 187, 208, 0.9);
+      background: #fff;
+      color: #9f1239;
+    }
+
+    /* PUBLICATIONS & CERTIFICATIONS */
+
+    .simple-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 720px) {
+      .simple-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .simple-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(248, 187, 208, 0.9);
+      background: #fff;
+      padding: 0.85rem 1rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .simple-card-title {
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      color: #374151;
+    }
+
+    .cert-logo-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid rgba(248, 187, 208, 0.9);
+      background: #fdf2f8;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      margin-right: 0.5rem;
+    }
+
+    /* CONTACT */
+
+    .contact-layout {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    @media (min-width: 780px) {
+      .contact-layout {
+        grid-template-columns: 1.1fr 1.9fr;
+      }
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .contact-pill {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(248, 187, 208, 0.9);
+      background: #fff;
+      padding: 0.65rem 0.8rem;
+      font-size: 0.86rem;
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .contact-value {
+      margin-top: 0.15rem;
+    }
+
+    .contact-form {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(248, 187, 208, 0.9);
+      background: #fff;
+      padding: 0.9rem 1rem 1rem;
+    }
+
+    .contact-form h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    @media (min-width: 640px) {
+      .form-grid-two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    label {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      margin-top: 0.15rem;
+      padding: 0.45rem 0.5rem;
+      border-radius: 10px;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      font-family: inherit;
+      font-size: 0.85rem;
+      resize: vertical;
+    }
+
+    textarea {
+      min-height: 90px;
+    }
+
+    .form-submit {
+      margin-top: 0.7rem;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 2rem;
+      padding-bottom: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <nav class="nav">
+        <div class="logo">MAHEK PATEL</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#publications">Publications</a>
+          <a href="#certificates">Certificates</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="about">
+      <div class="hero-inner">
+        <div class="hero-photo-block">
+          <div class="photo-circle">
+            <!-- Replace src with your own image & uncomment -->
+            <!-- <img src="mehek.jpg" alt="Photo of Mahek Patel"> -->
+            <span style="font-size:0.8rem; color:#9f1239;">Your<br>photo<br>here</span>
+          </div>
+          <!-- name under photo in pink gradient -->
+          <div class="hero-name pink-title">Mahek Patel</div>
+        </div>
+
+        <div class="hero-about-card">
+          <h1 class="pink-title">About me!</h1>
+          <p>
+            I’m a graduate student in Information Technology Management with a background
+            in data science, documentation, and operations. I like taking messy workflows
+            and turning them into calm, organized systems that help teams work better.
+            I’ve worked across student services, documentation, and real estate support,
+            and I’m especially curious about how technology and AI can make everyday work
+            more intuitive for people.
+          </p>
+        </div>
+      </div>
+
+      <div class="hero-actions-row">
+        <!-- TODO: point href to your actual resume PDF when ready -->
+        <a href="#" class="btn btn-primary">Resume</a>
+        <a href="#contact" class="btn btn-outline">Contact</a>
+      </div>
+    </section>
+
+    <main>
+      <!-- SKILLS -->
+      <section id="skills">
+        <h2 class="section-title"><span class="pink-title">Skills</span></h2>
+        <div class="skills-grid">
+          <div class="skills-card">
+            <h3>Soft skills</h3>
+            <div class="skills-tags">
+              <span class="skills-tag">Team coordination</span>
+              <span class="skills-tag">Cross-cultural communication</span>
+              <span class="skills-tag">Presenting & facilitation</span>
+              <span class="skills-tag">Process thinking</span>
+              <span class="skills-tag">Detail-oriented</span>
+            </div>
+          </div>
+          <div class="skills-card">
+            <h3>Technical skills</h3>
+            <div class="skills-tags">
+              <span class="skills-tag">Microsoft Excel</span>
+              <span class="skills-tag">Power BI</span>
+              <span class="skills-tag">Python (basics)</span>
+              <span class="skills-tag">Web tools</span>
+              <span class="skills-tag">SQL (in progress)</span>
+              <span class="skills-tag">Microsoft Office</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <h2 class="section-title"><span class="pink-title">Experience</span></h2>
+        <div class="experience-list">
+
+          <article class="exp-item">
+            <div class="exp-top">
+              <div>
+                <div class="exp-role">Marketing & Administrative Intern · Real Estate</div>
+                <div class="exp-meta">Company Name · City, State</div>
+              </div>
+              <div class="exp-meta">2025 · 1-month</div>
+            </div>
+            <p class="exp-summary">
+              Supported a real estate team with both marketing and admin tasks, helping keep
+              listings, documents, and client communication organized.
+            </p>
+            <ul class="exp-bullets">
+              <li>Assisted with listing updates, basic marketing materials, and outreach.</li>
+              <li>Helped track documents and emails so information stayed easy to find.</li>
+            </ul>
+          </article>
+
+          <article class="exp-item">
+            <div class="exp-top">
+              <div>
+                <div class="exp-role">Marketing Committee Member</div>
+                <div class="exp-meta">Seattle University · ISSC · Seattle, WA</div>
+              </div>
+              <div class="exp-meta">Sept 2024 – Jul 2025</div>
+            </div>
+            <p class="exp-summary">
+              Helped plan, promote, and support events for international students.
+            </p>
+            <ul class="exp-bullets">
+              <li>Collaborated across teams to organize programs and community events.</li>
+              <li>Used basic data from email and social tools to understand engagement.</li>
+            </ul>
+          </article>
+
+          <article class="exp-item">
+            <div class="exp-top">
+              <div>
+                <div class="exp-role">Web Developer Intern</div>
+                <div class="exp-meta">Spectrics Solutions · Gujarat, India</div>
+              </div>
+              <div class="exp-meta">Jan 2024 – May 2024</div>
+            </div>
+            <p class="exp-summary">
+              Supported internal web tools that helped teams access data and coordinate work.
+            </p>
+            <ul class="exp-bullets">
+              <li>Helped test features and report issues in a clear, structured way.</li>
+              <li>Contributed to documentation so tools were easier to understand and use.</li>
+            </ul>
+          </article>
+
+          <article class="exp-item">
+            <div class="exp-top">
+              <div>
+                <div class="exp-role">Documentation Coordinator</div>
+                <div class="exp-meta">D Vivid Consultant · Gujarat, India</div>
+              </div>
+              <div class="exp-meta">May 2022 – Jul 2022</div>
+            </div>
+            <p class="exp-summary">
+              Focused on keeping documents accurate, up to date, and audit-ready.
+            </p>
+            <ul class="exp-bullets">
+              <li>Maintained version control and file organization for key documents.</li>
+              <li>Worked with multiple teams while handling information confidentially.</li>
+            </ul>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <h2 class="section-title"><span class="pink-title">Projects</span></h2>
+        <div class="projects-list">
+          <article class="project-item">
+            <div class="project-image-box">
+              Project image / screenshot<br>(add later)
+            </div>
+            <div>
+              <div class="project-title">AR-based Fundraising Game (Concept)</div>
+              <p class="project-desc">
+                Early-stage concept for an AR experience that makes fundraising more interactive,
+                letting donors see progress and impact in real time.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">AR concept</span>
+                <span class="project-tag">Engagement</span>
+                <span class="project-tag">Nonprofit</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-item">
+            <div class="project-image-box">
+              Dashboard or report preview<br>(optional image)
+            </div>
+            <div>
+              <div class="project-title">Data & Reporting Mini-projects</div>
+              <p class="project-desc">
+                Coursework exercises where you cleaned data, explored patterns, and built simple
+                reports to turn raw data into something understandable.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Excel</span>
+                <span class="project-tag">Power BI</span>
+                <span class="project-tag">Data cleaning</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- PUBLICATIONS -->
+      <section id="publications">
+        <h2 class="section-title"><span class="pink-title">Publications</span></h2>
+        <div class="simple-grid">
+          <div class="simple-card">
+            <div class="simple-card-title">[Research paper title]</div>
+            <p>
+              Brief description of the research topic and your role. Replace this with your own
+              publication once you have it.
+            </p>
+          </div>
+          <div class="simple-card">
+            <div class="simple-card-title">[Report or article title]</div>
+            <p>
+              Another slot for a report, article, or major assignment you want to highlight.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CERTIFICATIONS -->
+      <section id="certificates">
+        <h2 class="section-title"><span class="pink-title">Certifications</span></h2>
+        <div class="simple-grid">
+          <div class="simple-card">
+            <div>
+              <span class="cert-logo-box">Logo</span>
+              <span class="simple-card-title">[Certificate name]</span>
+            </div>
+            <p>Provider · Year · short note about what you learned.</p>
+          </div>
+          <div class="simple-card">
+            <div>
+              <span class="cert-logo-box">Logo</span>
+              <span class="simple-card-title">[Another certificate]</span>
+            </div>
+            <p>Provider · Year · any focus or tools you used.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <h2 class="section-title"><span class="pink-title">Contact me</span></h2>
+        <div class="contact-layout">
+          <div class="contact-links">
+            <div class="contact-pill">
+              <div class="contact-label">Email</div>
+              <div class="contact-value">
+                <a href="mailto:mehekp1708@gmail.com">mehekp1708@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-pill">
+              <div class="contact-label">GitHub</div>
+              <div class="contact-value">
+                <a href="https://github.com/mehek1708" target="_blank" rel="noopener">
+                  github.com/mehek1708
+                </a>
+              </div>
+            </div>
+            <div class="contact-pill">
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-value">
+                <!-- replace with your actual LinkedIn link -->
+                <span>Coming soon</span>
+              </div>
+            </div>
+            <div class="contact-pill">
+              <div class="contact-label">Location</div>
+              <div class="contact-value">Seattle area · WA, USA</div>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <h3>Contact me form</h3>
+            <form>
+              <div class="form-grid form-grid-two">
+                <div>
+                  <label for="name">Name</label>
+                  <input id="name" type="text" placeholder="Your name" />
+                </div>
+                <div>
+                  <label for="email">Email</label>
+                  <input id="email" type="email" placeholder="Your email" />
+                </div>
+              </div>
+              <div class="form-grid">
+                <div>
+                  <label for="subject">Subject</label>
+                  <input id="subject" type="text" placeholder="What is this about?" />
+                </div>
+                <div>
+                  <label for="message">Message</label>
+                  <textarea id="message" placeholder="Write your message here..."></textarea>
+                </div>
+              </div>
+              <div class="form-submit">
+                <button type="submit" class="btn btn-primary">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Mahek Patel • Built with HTML & CSS
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
