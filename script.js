@@ -11,8 +11,16 @@ if (menuToggle && navLinks) {
     e.stopPropagation();
   });
 
-  document.addEventListener("click", () => {
-    navLinks.classList.remove("active");
+  document.addEventListener("click", (e) => {
+    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+      navLinks.classList.remove("active");
+    }
+  });
+
+  document.addEventListener("touchstart", (e) => {
+    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+      navLinks.classList.remove("active");
+    }
   });
 
   navLinks.querySelectorAll("a").forEach((link) => {
