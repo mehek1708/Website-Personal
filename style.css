@@ -1163,6 +1163,21 @@ section {
   }
 }
 
+.skills-card::after {
+  content: "Scroll for more ↓";
+  font-size: 0.72rem;
+  color: var(--deep-pink);
+  text-align: center;
+  margin-top: 0.45rem;
+  opacity: 0.75;
+}
+
+@media (min-width: 781px) {
+  .skills-card::after {
+    display: none;
+  }
+}
+
 /* =========================
    12. CONTACT SECTION
    ========================= */
